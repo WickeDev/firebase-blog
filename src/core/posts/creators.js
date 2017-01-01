@@ -1,9 +1,13 @@
 import {postList} from 'core/posts/post-list'
 
 export const createPost = (post) => (dispatch) => {
-    postList.push(post);
+    return postList.push(post);
 };
 
 export const loadPost = () => (dispatch) => {
     postList.subscribe(dispatch)
+};
+
+export const deletePost = (key) => (dispatch) => {
+    postList.remove(key);
 };

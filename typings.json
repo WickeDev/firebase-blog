@@ -3,6 +3,7 @@
     "firebase": "registry:dt/firebase#2.4.1+20160412125105",
     "immutable": "registry:dt/immutable#3.8.1+20161028131303",
     "jest": "registry:dt/jest#16.0.0+20161025131017",
+    "mocha": "registry:dt/mocha#2.2.5+20161220115504",
     "node": "registry:dt/node#6.0.0+20161121110008",
     "react": "registry:dt/react#0.14.0+20161124131900",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",

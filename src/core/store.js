@@ -1,7 +1,9 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './reducers';
+import {browserHistory} from 'react-router'
+import {syncHistoryWithStore} from 'react-router-redux'
 
+import reducers from './reducers';
 
 export default (initialState = {}) => {
     let middleware = applyMiddleware(thunk);
@@ -16,6 +18,7 @@ export default (initialState = {}) => {
     }
 
     const store = createStore(reducers, initialState, middleware);
+    const history = syncHistoryWithStore(browserHistory, store);
 
     if (module.hot) {
         module.hot.accept('./reducers', () => {
@@ -23,5 +26,5 @@ export default (initialState = {}) => {
         });
     }
 
-    return store;
+    return {store, history};
 };
