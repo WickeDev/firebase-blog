@@ -4,7 +4,7 @@
     "immutable": "registry:dt/immutable#3.8.1+20161028131303",
     "jest": "registry:dt/jest#16.0.0+20161025131017",
     "mocha": "registry:dt/mocha#2.2.5+20161220115504",
-    "node": "registry:dt/node#6.0.0+20161121110008",
+    "node": "registry:dt/node#6.0.0+20170106143713",
     "react": "registry:dt/react#0.14.0+20161124131900",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "react-redux": "registry:dt/react-redux#4.4.0+20160908183346",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "firebase": "registry:npm/firebase#3.0.5+20160723033700",
-    "react-router": "registry:npm/react-router#2.4.0+20160915183637"
+    "react-router": "registry:npm/react-router#2.4.0+20160915183637",
+    "window-or-global": "registry:dt/window-or-global#1.0.0+20161208042652"
   }
 }

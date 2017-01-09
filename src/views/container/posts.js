@@ -1,14 +1,11 @@
-import "../styles/app.css"
-
-import React, {Component} from "react"
+import * as React from "react"
 import {postsActions} from "core/posts"
 import {connect} from "react-redux"
 import {withRouter} from 'react-router'
 import {Panel, Button} from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
 
-
-class Posts extends Component {
+class Posts extends React.Component {
     componentWillMount() {
         const {loadPost} = this.props;
         loadPost();
@@ -41,11 +38,6 @@ class Posts extends Component {
         deletePost(key);
     };
 
-    newPost = () => {
-        const {router} = this.props;
-        router.push('post/');
-    };
-
     render() {
         const {posts} = this.props;
 
@@ -55,14 +47,13 @@ class Posts extends Component {
             date.setSeconds(post.get('createTime'));
             const time = date.toString();
 
-            return <Panel>
+            return <Panel key={key}>
                 <article
                     style={{
                         textAlign: 'left',
                         margin: '10px',
                         padding: '10px',
-                    }}
-                    key={key}>
+                    }}>
                     <div>
                         title: {post.get('title')}<br/>
                         author: {post.get('author')}<br/>

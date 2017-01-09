@@ -1,19 +1,15 @@
-import React, {Component} from "react";
-import "../styles/app.css";
+import * as React from "react";
 import {postsActions} from "core/posts";
 import {connect} from "react-redux";
 import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap'
+import {browserHistory} from 'react-router'
 
-class Post extends Component {
+class Post extends React.Component {
 
     createPost = () => {
         const {createPost} = this.props;
         const title = this.titleInput.value;
         const content = this.contentInput.value;
-
-        console.log(this.titleInput.value);
-
-        console.log(this.contentInput.value);
 
         if ((title === '') && (content === '')) {
             alert('제목과 내용을 입력하세요');
@@ -30,9 +26,8 @@ class Post extends Component {
             };
 
             createPost(post)
-                .then(res => {
-                    const {router} = this.props;
-                    router.push('/');
+                .then(() => {
+                    browserHistory.push('/');
                 })
                 .catch(err => {
                     console.log(err);
@@ -78,7 +73,9 @@ class Post extends Component {
                         cols="40"
                     />
                     <br/>
-                    <Button onClick={this.createPost}>Create Post</Button>
+                    <Button onClick={this.createPost}>
+                        Create Post
+                    </Button>
                 </FormGroup>
             </div>
         );
