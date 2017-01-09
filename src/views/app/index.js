@@ -1,13 +1,17 @@
 import React, {Component} from "react";
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import { browserHistory } from 'react-router'
 
 class App extends Component {
+
+    navigatePost =() =>{
+        browserHistory.push('/post');
+    };
 
     render() {
         return <div className="App">
             <Navbar
                 staticTop
-                role="banner"
                 className="bs-docs-nav"
             >
 
@@ -17,7 +21,7 @@ class App extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
-                    <NavItem eventKey={2} href="post">Post</NavItem>
+                    <NavItem eventKey={2} onClick={::this.navigatePost}>Post</NavItem>
                 </Nav>
             </Navbar>
             {this.props.children}

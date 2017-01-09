@@ -5,6 +5,7 @@ import {postsActions} from "core/posts"
 import {connect} from "react-redux"
 import {withRouter} from 'react-router'
 import {Panel, Button} from 'react-bootstrap'
+import ReactMarkdown from 'react-markdown'
 
 
 class Posts extends Component {
@@ -69,7 +70,7 @@ class Posts extends Component {
                     </div>
                     <br/>
                     <Panel>
-                        body: {post.get('content')}
+                        <ReactMarkdown source={post.get('content')}/>
                     </Panel>
                     <div
                         style={{
@@ -87,7 +88,6 @@ class Posts extends Component {
                     </div>
                 </article>
             </Panel>
-                ;
         });
 
         return (
