@@ -1,5 +1,5 @@
 import * as React from "react";
-import {postsActions} from "core/posts";
+import {actions} from "core/posts";
 import {connect} from "react-redux";
 import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap'
 import {browserHistory} from 'react-router'
@@ -88,7 +88,7 @@ const mapStateToProps = ({posts}) => ({
 
 const mapDispatchToProps = Object.assign(
     {},
-    postsActions,
+    actions,
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

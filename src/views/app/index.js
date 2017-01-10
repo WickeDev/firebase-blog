@@ -9,14 +9,13 @@ class App extends React.Component {
 
     render() {
         return <div className="App">
-            <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-                <a className="navbar-brand" href="/">Navbar</a>
+            <nav className="navbar navbar-toggleable-md bg-faded">
+                <a className="navbar-brand" href="/">Blog</a>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <a className="nav-item nav-link active"
-                           href="#"
                            onClick={::this.navigatePost}
-                        >Home</a>
+                        >Post</a>
                     </div>
                 </div>
             </nav>

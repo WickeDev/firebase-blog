@@ -1,5 +1,5 @@
 import * as React from "react"
-import {postsActions} from "core/posts"
+import {actions} from "core/posts"
 import {connect} from "react-redux"
 import {withRouter} from 'react-router'
 import {Panel, Button} from 'react-bootstrap'
@@ -103,7 +103,7 @@ const mapStateToProps = ({posts}) => ({
 
 const mapDispatchToProps = Object.assign(
     {},
-    postsActions,
+    actions,
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Posts));

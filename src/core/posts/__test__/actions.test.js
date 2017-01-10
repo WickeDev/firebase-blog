@@ -1,6 +1,6 @@
 import * as postActions from 'core/posts/actions'
 
-describe('post actions', () => {
+describe('post authActions', () => {
     it('should be create post action be correct', () => {
         expect(postActions.createPostSuccess()).toEqual({
             "type": "CREATE_POST_SUCCESS"
