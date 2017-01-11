@@ -1,4 +1,4 @@
-import {postList} from 'core/posts/post-list'
+import {postList} from './post-list'
 
 export const createPost = (post) => (dispatch) => {
     return postList.push(post);

@@ -1,6 +1,6 @@
-import * as actionTypes from 'core/posts/action-types'
-import * as actions from 'core/posts/actions'
+import * as postsActionTypes from './action-types'
+import * as postsActions from './actions'
 
-export {actionTypes, actions}
+export {postsActionTypes, postsActions}
 export {postsReducer} from './reducuer'
 export {Post} from './post'

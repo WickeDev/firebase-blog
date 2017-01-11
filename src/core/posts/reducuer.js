@@ -1,5 +1,6 @@
 import {List, Record} from 'immutable'
 import {handleActions} from 'redux-actions'
+
 import * as actionTypes from './action-types'
 
 export const PostsState = new Record({

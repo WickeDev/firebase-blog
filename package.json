@@ -99,7 +99,7 @@
       "^.+\\.css$": "<rootDir>\\config\\jest\\CSSStub.js"
     },
     "modulePaths": [
-      "src"
+      "."
     ],
     "setupFiles": [
       "<rootDir>\\config\\polyfills.js"

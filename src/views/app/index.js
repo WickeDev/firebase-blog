@@ -1,6 +1,8 @@
 import * as React from "react";
 import {browserHistory} from 'react-router'
 
+import {Navbar, NavbarBrand, Nav, NavItem} from 'views/components'
+
 class App extends React.Component {
 
     navigatePost = () => {
@@ -9,16 +11,18 @@ class App extends React.Component {
 
     render() {
         return <div className="App">
-            <nav className="navbar navbar-toggleable-md bg-faded">
-                <a className="navbar-brand" href="/">Blog</a>
+            <Navbar>
+                <NavbarBrand href="/">Blog</NavbarBrand>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-                        <a className="nav-item nav-link active"
-                           onClick={::this.navigatePost}
-                        >Post</a>
-                    </div>
+                    <Nav>
+                        <NavItem
+                            href=""
+                            onClick={::this.navigatePost}>
+                            Post
+                        </NavItem>
+                    </Nav>
                 </div>
-            </nav>
+            </Navbar>
             {this.props.children}
         </div>
     }

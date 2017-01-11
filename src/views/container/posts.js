@@ -1,9 +1,11 @@
-import * as React from "react"
-import {actions} from "core/posts"
+import * as React from "react";
+
 import {connect} from "react-redux"
 import {withRouter} from 'react-router'
 import {Panel, Button} from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
+
+import {postsActions} from "core/posts"
 
 class Posts extends React.Component {
     componentWillMount() {
@@ -103,7 +105,7 @@ const mapStateToProps = ({posts}) => ({
 
 const mapDispatchToProps = Object.assign(
     {},
-    actions,
+    postsActions,
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Posts));

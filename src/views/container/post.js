@@ -1,8 +1,9 @@
 import * as React from "react";
-import {actions} from "core/posts";
 import {connect} from "react-redux";
 import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap'
 import {browserHistory} from 'react-router'
+
+import {postsActions} from "core/posts";
 
 class Post extends React.Component {
 
@@ -88,7 +89,7 @@ const mapStateToProps = ({posts}) => ({
 
 const mapDispatchToProps = Object.assign(
     {},
-    actions,
+    postsActions,
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

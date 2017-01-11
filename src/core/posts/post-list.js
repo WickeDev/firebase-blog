@@ -1,6 +1,8 @@
-import * as actionTypes from 'core/posts/action-types'
 import {FirebaseList} from 'core/firebase'
-import {Post} from 'core/posts/post'
+
+import * as actionTypes from './action-types'
+import {Post} from './post'
+
 const path = 'posts';
 
 export const postList = new FirebaseList({

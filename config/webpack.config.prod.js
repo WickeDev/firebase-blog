@@ -8,6 +8,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
+var path = require('path');
 
 function ensureSlash(path, needsSlash) {
     var hasSlash = path.endsWith('/');
@@ -70,7 +71,8 @@ module.exports = {
         publicPath: publicPath
     },
     resolve: {
-        modulesDirectories: ["web_modules", "node_modules", "src"],
+        root: path.resolve('src'),
+        modulesDirectories: ["web_modules", "node_modules"],
         // This allows you to set a fallback for where Webpack should look for modules.
         // We read `NODE_PATH` environment variable in `paths.js` and pass paths here.
         // We use `fallback` instead of `root` because we want `node_modules` to "win"

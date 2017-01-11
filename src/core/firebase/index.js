@@ -1,2 +1,2 @@
-export {firebaseApp, firebaseAuth, firebaseDB} from 'core/firebase/firebase'
-export {FirebaseList} from 'core/firebase/firebase-list'
+export {firebaseApp, firebaseAuth, firebaseDB} from './firebase'
+export {FirebaseList} from './firebase-list'

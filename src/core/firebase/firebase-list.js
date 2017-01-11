@@ -1,6 +1,10 @@
 import {firebaseDB} from "./firebase";
 
 export class FirebaseList {
+    _actions;
+    _modelClass;
+    _path;
+
     constructor(actions, modelClass, path = null) {
         this._actions = actions;
         this._modelClass = modelClass;
@@ -50,7 +54,7 @@ export class FirebaseList {
         let initialized = false;
         let list = [];
 
-        ref.once('value').then((snapshot) => {
+        ref.once('value').then(() => {
             initialized = true;
             emit(this._actions.onLoad(list));
         });

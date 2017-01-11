@@ -1,6 +1,7 @@
 import {Record} from 'immutable'
-import * as actionTypes from 'core/auth/action-types'
 import {combineActions, handleActions} from 'redux-actions'
+
+import * as actionTypes from './action-types'
 
 export const AuthState = new Record({
     authenticated: false,

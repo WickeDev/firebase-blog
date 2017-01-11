@@ -1,8 +1,8 @@
-import * as authActions from 'core/auth/actions'
+import * as authActions from './actions'
 
 export {authActions}
-export * as authActionTypes from 'core/auth/action-types'
-export {authReducer} from 'core/auth/reducer'
-export { getAuth, isAuthenticated } from 'core/auth/selectors';
+export * as authActionTypes from './action-types'
+export {authReducer} from './reducer'
+export {getAuth, isAuthenticated} from './selectors';
 
 
