@@ -61,6 +61,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^4.0.0-alpha.6",
+    "classnames": "^2.2.5",
     "firebase": "^3.6.2",
     "firebase-admin": "^4.0.3",
     "immutable": "^3.8.1",

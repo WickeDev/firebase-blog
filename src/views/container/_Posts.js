@@ -1,9 +1,14 @@
 import * as React from "react";
 
+import * as styles from 'views/styles/_posts.css'
+
 import {connect} from "react-redux"
 import {withRouter} from 'react-router'
-import {Panel, Button} from 'react-bootstrap'
+import {Panel} from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
+import cx from 'classnames'
+
+import {Button, Modal} from 'views/components'
 
 import {postsActions} from "core/posts"
 
@@ -50,12 +55,7 @@ class Posts extends React.Component {
             const time = date.toString();
 
             return <Panel key={key}>
-                <article
-                    style={{
-                        textAlign: 'left',
-                        margin: '10px',
-                        padding: '10px',
-                    }}>
+                <article className={cx(styles['article'], "card")}>
                     <div>
                         title: {post.get('title')}<br/>
                         author: {post.get('author')}<br/>
@@ -65,34 +65,23 @@ class Posts extends React.Component {
                     <Panel>
                         <ReactMarkdown source={post.get('content')}/>
                     </Panel>
-                    <div
-                        style={{
-                            textAlign: 'right',
-                            width: '100%',
-                        }}>
+                    <div className={styles['bottom-container']}>
                         <Button
-                            bsStyle="danger"
+                            color="btn-danger"
                             onClick={() => {
                                 this.deletePost(key);
                             }}
                         >
                             Delete Post
                         </Button>
+                        <Modal/>
                     </div>
                 </article>
             </Panel>
         });
 
         return (
-            <div
-                style={{
-                    width: "80%",
-                    left: 0,
-                    right: 0,
-                    marginLeft: "auto",
-                    marginRight: "auto"
-                }}
-            >
+            <div className={styles['contents']}>
                 {list}
             </div>
         );

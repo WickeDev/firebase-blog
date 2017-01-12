@@ -3,7 +3,7 @@ import installDevTools from 'immutable-devtools'
 import * as React from 'react'
 import {render} from 'react-dom'
 
-import 'views/styles/index.scss'
+import 'views/styles/bootstrap.scss'
 import Root from 'views/root'
 import {authActions} from 'core/auth'
 import configureStore from 'core/store';

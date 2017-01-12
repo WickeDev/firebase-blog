@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 
-export default class NavbarBrand extends React.Component {
+class NavbarBrand extends React.Component {
 
     render() {
         return (
@@ -9,5 +9,6 @@ export default class NavbarBrand extends React.Component {
             </a>
         )
     }
-
 }
+
+export default NavbarBrand;

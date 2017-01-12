@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 
-export default class NavItem extends React.Component {
+class NavItem extends React.Component {
 
     render() {
         return (
@@ -10,3 +10,5 @@ export default class NavItem extends React.Component {
         )
     }
 }
+
+export default NavItem;
