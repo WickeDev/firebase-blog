@@ -8,7 +8,7 @@ import {Panel} from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
 import cx from 'classnames'
 
-import {Button, Modal} from 'views/components'
+import {Button} from 'views/components'
 
 import {postsActions} from "core/posts"
 
@@ -74,7 +74,6 @@ class Posts extends React.Component {
                         >
                             Delete Post
                         </Button>
-                        <Modal/>
                     </div>
                 </article>
             </Panel>
