@@ -33,7 +33,7 @@ class Content extends React.Component {
             return <Button
                 onClick={() => this.deletePost(key)}
                 raised
-                accent
+                inverse
                 className={styles['button-container']}
             >
                 삭제
@@ -52,7 +52,7 @@ class Content extends React.Component {
 
         // content
         let post = posts.list.filter(value => {
-            return value.get('key') === paths[2];
+            return value.get('key') === paths[1];
         });
 
         post = post.get(0);
@@ -72,6 +72,7 @@ class Content extends React.Component {
         return (
             <div className={styles['content']}>
                 <CardSection>
+                    {this.getDeleteButton(key)}
                     <h1>
                         {title}
                     </h1>
@@ -80,7 +81,7 @@ class Content extends React.Component {
                     </div>
                     <br/>
                     <ReactMarkdown source={content}/>
-                    {this.getDeleteButton(key)}
+
                 </CardSection>
             </div>
         )

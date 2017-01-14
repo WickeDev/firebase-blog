@@ -4,13 +4,32 @@ import CardSection from '../CardSection'
 
 class MainContent extends React.Component {
 
+    dateFormat(date) {
+        let dd = date.getDate();
+        let mm = date.getMonth() + 1;
+        const yyyy = date.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        return yyyy + '/' + mm + '/' + dd;
+    }
+
 
     contraction = (post) => {
-        const content = post.get('content');
+        let content = post.get('content');
+
+        content = content.replace(/#/gi, '');
+        content = content.replace(/`/gi, '');
+        content = content.replace(/\*/gi, '');
+        content = content.replace(/-/gi, '');
 
         if (content.length > 180) {
             return content.substring(0, 180) + '…….';
         }
+
 
         return content;
     };
@@ -28,7 +47,8 @@ class MainContent extends React.Component {
             const date = new Date();
             const key = post.get('key');
             date.setSeconds(post.get('createTime'));
-            const time = date.toString();
+
+            console.log(post.get('createTime'));
 
             return <div className={styles['content-box']} key={key}>
                 <CardSection>
@@ -40,7 +60,7 @@ class MainContent extends React.Component {
                                 </a>
                             </h1>
                             <br/>
-                            작성일: {time}<br/>
+                            작성일: {this.dateFormat(date)}<br/>
                         </div>
                         <br/>
                         <div>

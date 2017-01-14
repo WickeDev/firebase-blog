@@ -36,7 +36,7 @@ class PostForm extends React.Component {
                 author: 'author',
                 title: title,
                 content: content,
-                createTime: Date.now().toString(),
+                createTime: new Date(),
             };
 
             createPost(post)

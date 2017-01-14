@@ -21,6 +21,9 @@ class NavigationEct extends React.Component {
                         새로운 포스팅
                     </a>
                 </li>
+                <li>
+                    <a>카테고리 편집</a>
+                </li>
             </ul>
 
 

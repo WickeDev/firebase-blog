@@ -13,6 +13,5 @@ a, u {
 
 a:hover, u:hover {
     color: #3c8af0;
-    text-decoration: underline;
     cursor: hand;
 }
