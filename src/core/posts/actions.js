@@ -9,5 +9,5 @@ export const loadPost = () => (dispatch) => {
 };
 
 export const deletePost = (key) => (dispatch) => {
-    postList.remove(key);
+    return postList.remove(key);
 };

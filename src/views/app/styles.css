@@ -1,0 +1,21 @@
+.app {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 10px;
+    min-width: 360px;
+}
+
+.site-header {
+    margin: 0 0 40px;
+}
+
+.site-header:after {
+    clear: both;
+}
+
+.site-container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 10px;
+    min-width: 360px;
+}

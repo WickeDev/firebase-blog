@@ -4,10 +4,10 @@ import * as actionTypes from 'core/auth/action-types'
 
 export const initAuth = (dispatch) => {
     return new Promise((resolve, reject) => {
-        const unsub = firebaseAuth.onAuthStateChanged(
+        const unSub = firebaseAuth.onAuthStateChanged(
             user => {
                 dispatch(actionTypes.initAuth(user));
-                unsub();
+                unSub();
                 resolve();
             },
             error => reject(error)
@@ -16,8 +16,8 @@ export const initAuth = (dispatch) => {
 };
 
 const authenticate = (provider) => (dispatch) => {
-    firebaseAuth.signInWithPopup(provider)
-        .then(result => dispatch(actionTypes.signOutSuccess(result)))
+    return firebaseAuth.signInWithPopup(provider)
+        .then(result => dispatch(actionTypes.signInSuccess(result)))
         .catch(error => dispatch(actionTypes.signInError(error)))
 };
 
@@ -34,6 +34,6 @@ export const signInWithTwitter = () => {
 };
 
 export const signOut = () => (dispatch) => {
-    firebaseAuth.signOut()
-        .then(() => dispatch(actionTypes.signOutSuccess));
+    return firebaseAuth.signOut()
+        .then(() => dispatch(actionTypes.signOutSuccess()));
 };

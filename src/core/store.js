@@ -1,6 +1,6 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 
 import reducers from './reducers';
@@ -20,7 +20,7 @@ export default (initialState = {}) => {
     }
 
     const store = createStore(reducers, initialState, middleware);
-    const history = syncHistoryWithStore(browserHistory, store);
+    const history = syncHistoryWithStore(hashHistory, store);
     const {hot} = module;
     if (hot) {
         hot.accept('./reducers', () => {

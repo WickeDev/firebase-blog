@@ -1,7 +1,8 @@
 import * as React from "react";
 import {browserHistory} from 'react-router'
+import AppBar from 'react-toolbox/lib/app_bar'
 
-import {Navbar, NavbarBrand, Nav, NavItem} from 'views/components'
+import * as styles from './styles.css'
 
 class App extends React.Component {
 
@@ -10,20 +11,13 @@ class App extends React.Component {
     };
 
     render() {
-        return <div className="App">
-            <Navbar>
-                <NavbarBrand href="/">Blog</NavbarBrand>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <Nav>
-                        <NavItem
-                            href=""
-                            onClick={::this.navigatePost}>
-                            Post
-                        </NavItem>
-                    </Nav>
-                </div>
-            </Navbar>
-            {this.props.children}
+        return <div className={styles['app']}>
+            <div className={styles['site-container']}>
+                <header className={styles['site-header']}>
+                    <AppBar title={<a href="/">Code Sanctum</a>}/>
+                </header>
+                {this.props.children}
+            </div>
         </div>
     }
 }

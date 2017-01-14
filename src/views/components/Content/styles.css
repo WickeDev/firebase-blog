@@ -1,0 +1,9 @@
+.content {
+    width: 72%;
+    min-height: 10px;
+    float: left;
+}
+
+.button-container {
+    float: right;
+}

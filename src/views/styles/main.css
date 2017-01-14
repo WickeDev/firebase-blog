@@ -1,0 +1,18 @@
+html {
+    font-size: 11px;
+    background: #F0F0F0;
+}
+
+body {
+    margin: 0;
+}
+
+a, u {
+    text-decoration: none;
+}
+
+a:hover, u:hover {
+    color: #3c8af0;
+    text-decoration: underline;
+    cursor: hand;
+}

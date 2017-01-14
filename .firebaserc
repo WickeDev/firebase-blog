@@ -1,5 +1,6 @@
 {
   "projects": {
-    "firebase-blog": "fir-blog-a2a26"
+    "firebase-blog": "fir-blog-a2a26",
+    "default": "fir-blog-a2a26"
   }
 }

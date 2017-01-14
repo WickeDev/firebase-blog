@@ -1,0 +1,12 @@
+@import "views/styles/variable.css";
+
+.contents {
+    width: 72%;
+    min-height: 10px;
+    float: left;
+}
+
+.content-box {
+    text-align: left;
+    margin: 0 0 3% 0;
+}

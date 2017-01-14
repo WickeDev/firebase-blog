@@ -1,0 +1,20 @@
+@import "views/styles/variable.css";
+
+.side-bar {
+    width: 25%;
+    margin: 0 0 0 3%;
+    min-height: 10px;
+    float: left;
+}
+
+.widget {
+    padding: 20px;
+}
+
+.navigation-padding {
+    padding: var(--card-padding);
+}
+
+.navigation {
+    margin: 0 0 10% 0;
+}

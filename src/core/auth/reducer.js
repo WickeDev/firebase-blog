@@ -18,7 +18,8 @@ export const authReducer = handleActions({
             id: payload ? payload.uid : null
         });
     },
-    [actionTypes.signOutSuccess]: (state, {payload}) => {
+    [actionTypes.signOutSuccess]: () => {
+        console.log(actionTypes.signOutSuccess);
         return new AuthState();
     }
 }, new AuthState());

@@ -4,11 +4,10 @@
   },
   "hosting": {
     "public": "build",
-    "redirects": [
+    "rewrites": [
       {
-        "source": "/post",
-        "destination": "/",
-        "type": 301
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
