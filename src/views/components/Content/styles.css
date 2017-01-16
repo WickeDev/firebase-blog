@@ -4,6 +4,12 @@
     float: left;
 }
 
+.content-box {
+    text-align: left;
+    margin: 0 0 3% 0;
+}
+
 .button-container {
+    margin: 0 0 3% 0;
     float: right;
 }

@@ -1,10 +1,12 @@
 import * as React from 'react'
 import * as styles from './styles.css'
 import CardSection from '../CardSection'
+import {Button} from 'react-toolbox/lib/button'
+
 
 class MainContent extends React.Component {
 
-    dateFormat(date) {
+    dateFormat = (date) => {
         let dd = date.getDate();
         let mm = date.getMonth() + 1;
         const yyyy = date.getFullYear();
@@ -15,23 +17,27 @@ class MainContent extends React.Component {
             mm = '0' + mm;
         }
         return yyyy + '/' + mm + '/' + dd;
-    }
+    };
 
 
     contraction = (post) => {
         let content = post.get('content');
 
-        content = content.replace(/#/gi, '');
+        content = content.replace(/(#|)/gi, '');
         content = content.replace(/`/gi, '');
         content = content.replace(/\*/gi, '');
         content = content.replace(/-/gi, '');
 
-        if (content.length > 180) {
-            return content.substring(0, 180) + '…….';
+        if (content.length > 255) {
+            return content.substring(0, 255) + ' …….';
         }
 
-
         return content;
+    };
+
+    loadMore = () => {
+        const {loadMore} = this.props;
+        loadMore();
     };
 
     navigationToContent = (post) => {
@@ -41,14 +47,12 @@ class MainContent extends React.Component {
     };
 
     contents = () => {
-        const {posts} = this.props;
+        const {list} = this.props;
 
-        return posts.get('list').map(post => {
+        return list.map(post => {
             const date = new Date();
             const key = post.get('key');
             date.setSeconds(post.get('createTime'));
-
-            console.log(post.get('createTime'));
 
             return <div className={styles['content-box']} key={key}>
                 <CardSection>
@@ -76,6 +80,11 @@ class MainContent extends React.Component {
         return (
             <div className={styles['contents']}>
                 {this.contents()}
+                <Button
+                    onClick={::this.loadMore}
+                    raised
+                    label="이전 글"
+                />
             </div>
         )
     }
