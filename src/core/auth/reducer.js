@@ -19,7 +19,6 @@ export const authReducer = handleActions({
         });
     },
     [actionTypes.signOutSuccess]: () => {
-        console.log(actionTypes.signOutSuccess);
         return new AuthState();
     }
 }, new AuthState());

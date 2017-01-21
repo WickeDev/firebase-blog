@@ -4,8 +4,10 @@ import {withRouter} from 'react-router'
 import {bindActionCreators} from 'redux'
 import {createSelector} from 'reselect'
 
-
-import {getPostsList, postsActions, postsActionTypes} from "core/posts"
+import {
+    getPostsList, hasHiddenPosts,
+    postsActions, postsActionTypes
+} from "core/posts"
 import {getAuth, authActions} from 'core/auth'
 import {MainNavigation, MainContent} from 'views/components'
 
@@ -28,16 +30,10 @@ class MainPage extends React.Component {
     }
 }
 
-/*const mapStateToProps = ({posts, auth}) => ({
- posts,
- auth
- });*/
-
-
 const mapStateToProps = createSelector(
-    getAuth, getPostsList,
-    (auth, list) => ({
-        auth, list
+    getAuth, getPostsList, hasHiddenPosts,
+    (auth, list, hasHiddenPosts) => ({
+        auth, list, hasHiddenPosts
     }));
 
 

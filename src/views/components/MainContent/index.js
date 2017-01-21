@@ -1,60 +1,58 @@
 import * as React from 'react'
+import moment from 'moment'
+
+import {Button} from 'react-toolbox/lib/button'
+
 import * as styles from './styles.css'
 import CardSection from '../CardSection'
-import {Button} from 'react-toolbox/lib/button'
 
 
 class MainContent extends React.Component {
 
-    dateFormat = (date) => {
-        let dd = date.getDate();
-        let mm = date.getMonth() + 1;
-        const yyyy = date.getFullYear();
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
-        return yyyy + '/' + mm + '/' + dd;
-    };
-
-
     contraction = (post) => {
-        let content = post.get('content');
+        let content = post.get('content')
 
-        content = content.replace(/(#|)/gi, '');
-        content = content.replace(/`/gi, '');
-        content = content.replace(/\*/gi, '');
-        content = content.replace(/-/gi, '');
+        content = content.replace(/(#|)/gi, '')
+        content = content.replace(/`/gi, '')
+        content = content.replace(/\*/gi, '')
+        content = content.replace(/-/gi, '')
 
         if (content.length > 255) {
-            return content.substring(0, 255) + ' …….';
+            return content.substring(0, 255) + ' …….'
         }
 
-        return content;
-    };
+        return content
+    }
 
     loadMore = () => {
-        const {loadMore} = this.props;
-        loadMore();
-    };
+        const {loadMore} = this.props
+        loadMore()
+    }
 
     navigationToContent = (post) => {
-        const {router} = this.props;
-        const key = post.get('key');
-        router.push(`content/${key}`);
-    };
+        const {router} = this.props
+        const key = post.get('key')
+        router.push(`content/${key}`)
+    }
+
+    getTime = (post, key) => {
+        const time = post.get(key)
+        if ((time === null) || (time === undefined)) {
+            return null
+        }
+        return moment(time).format('ll')
+    }
 
     contents = () => {
-        const {list} = this.props;
+        const {list} = this.props
+        moment.locale('ko')
+
+        console.log(list);
 
         return list.map(post => {
-            const date = new Date();
-            const key = post.get('key');
-            date.setSeconds(post.get('createTime'));
+            const key = post.get('key')
 
-            return <div className={styles['content-box']} key={key}>
+            return <div className={styles['content']} key={key}>
                 <CardSection>
                     <article>
                         <div>
@@ -64,7 +62,8 @@ class MainContent extends React.Component {
                                 </a>
                             </h1>
                             <br/>
-                            작성일: {this.dateFormat(date)}<br/>
+                            작성일: {this.getTime(post, 'createTime')}<br/>
+                            업데이트: {this.getTime(post, 'updateTime')}
                         </div>
                         <br/>
                         <div>
@@ -73,21 +72,26 @@ class MainContent extends React.Component {
                     </article>
                 </CardSection>
             </div>
-        });
-    };
+        })
+    }
+
+    loadMoreButton = () => {
+        return <Button
+            onClick={::this.loadMore}
+            raised
+            label="이전 글"
+        />
+    }
 
     render() {
+        const {hasHiddenPosts} = this.props
         return (
             <div className={styles['contents']}>
                 {this.contents()}
-                <Button
-                    onClick={::this.loadMore}
-                    raised
-                    label="이전 글"
-                />
+                {hasHiddenPosts ? this.loadMoreButton() : null}
             </div>
         )
     }
 }
 
-export default MainContent;
+export default MainContent

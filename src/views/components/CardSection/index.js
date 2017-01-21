@@ -1,9 +1,14 @@
+
+// @flow
 import * as React from 'react'
 import {Card} from 'react-toolbox/lib/card'
 
 import * as styles from './styles.css'
 
 class CardSection extends React.Component {
+    props: {
+        children: ?any,
+    }
 
     render() {
         return (
@@ -16,4 +21,4 @@ class CardSection extends React.Component {
     }
 }
 
-export default CardSection;
+export default CardSection

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {connect} from "react-redux"
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {bindActionCreators} from 'redux'
 
@@ -10,8 +10,8 @@ import {MainNavigation, Content} from 'views/components'
 class ContentPage extends React.Component {
 
     componentWillMount() {
-        const {loadPost} = this.props;
-        loadPost();
+        const {loadPost} = this.props
+        loadPost()
     }
 
     render() {
@@ -28,16 +28,12 @@ class ContentPage extends React.Component {
     }
 }
 
-const mapStateToProps = ({posts, auth, routing}) => ({
-    posts,
-    auth,
-    routing
-});
+const mapStateToProps = ({posts, auth}) => ({posts, auth})
 
 const mapDispatchToProps = (dispatch) => ({
     signOut: bindActionCreators(authActions.signOut, dispatch),
     loadPost: bindActionCreators(postsActions.loadPost, dispatch),
     deletePost: bindActionCreators(postsActions.deletePost, dispatch),
-});
+})
 
-export default  connect(mapStateToProps, mapDispatchToProps)(withRouter(ContentPage));
+export default  connect(mapStateToProps, mapDispatchToProps)(withRouter(ContentPage))

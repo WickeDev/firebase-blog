@@ -6,6 +6,7 @@ export const Post = new Record({
     title: null,
     content: null,
     createTime: null,
+    updateTime: null,
     tags: [],
     category: [],
 });

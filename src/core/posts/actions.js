@@ -11,3 +11,7 @@ export const loadPost = () => (dispatch) => {
 export const deletePost = (key) => (dispatch) => {
     return postList.remove(key);
 };
+
+export const updatePost = (key, value) => (dispatch) => {
+    return postList.update(key, value);
+};

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Input from 'react-toolbox/lib/input'
 
-
 import * as styles from './styles.css'
 import CardSection from '../CardSection'
 import {Button} from 'react-toolbox/lib/button'
@@ -10,44 +9,44 @@ import {Button} from 'react-toolbox/lib/button'
 class PostForm extends React.Component {
 
     constructor(props, context) {
-        super(props, context);
-        this.state = {title: '', content: ''};
+        super(props, context)
+        this.state = {title: '', content: ''}
     }
 
 
     handleChange = (name, value) => {
-        this.setState({...this.state, [name]: value});
-    };
+        this.setState({...this.state, [name]: value})
+    }
 
 
     createPost = () => {
-        const {createPost, router} = this.props;
-        const title = this.state.title;
-        const content = this.state.content;
+        const {createPost, router} = this.props
+        const title = this.state.title
+        const content = this.state.content
 
         if ((title === '') && (content === '')) {
-            alert('제목과 내용을 입력하세요');
+            alert('제목과 내용을 입력하세요')
         } else if (title === '') {
-            alert('제목을 입력하세요');
+            alert('제목을 입력하세요')
         } else if (content === '') {
-            alert('내용을 입력하세요');
+            alert('내용을 입력하세요')
         } else {
             const post = {
                 author: 'author',
                 title: title,
                 content: content,
-                createTime: new Date(),
-            };
+                createTime: new Date().toISOString(),
+            }
 
             createPost(post)
                 .then(() => {
-                    router.push('/');
+                    router.push('/')
                 })
                 .catch(err => {
-                    alert(err);
-                });
+                    alert(err)
+                })
         }
-    };
+    }
 
     render() {
         return (
@@ -85,4 +84,4 @@ class PostForm extends React.Component {
     }
 }
 
-export default PostForm;
+export default PostForm

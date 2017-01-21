@@ -3,7 +3,7 @@ import {Provider} from 'react-redux'
 import {Router, Route, IndexRoute} from 'react-router'
 
 import App from './app'
-import {NewPostPage, MainPage, SignInPage, ContentPage} from './pages'
+import {NewPostPage, UpdatePostPage, MainPage, SignInPage, ContentPage} from './pages'
 
 export default function Root({history, store}) {
     return (
@@ -14,8 +14,9 @@ export default function Root({history, store}) {
                     <Route path='new-post' component={NewPostPage}/>
                     <Route path='sign-in' component={SignInPage}/>
                     <Route path='content/:key' component={ContentPage}/>
+                    <Route path='update-post/:key' component={UpdatePostPage}/>
                 </Route>
             </Router>
         </Provider>
-    );
+    )
 }

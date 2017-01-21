@@ -2,7 +2,8 @@
   "globalDependencies": {
     "jest": "registry:dt/jest#16.0.0+20161230173903",
     "mocha": "registry:dt/mocha#2.2.5+20161220115504",
-    "node": "registry:dt/node#6.0.0+20170106143713",
+    "moment": "registry:dt/moment#2.11.1+20161010105546",
+    "node": "registry:env/node#6.0.0+20170115054122",
     "redux": "registry:dt/redux#3.5.2+20160703092728",
     "redux-actions": "registry:dt/redux-actions#0.8.0+20161006171701"
   },
